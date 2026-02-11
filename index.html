@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa para Sanar Heridas Emocionales - Oferta Especial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-principal: #C15B5B; 
+            --color-fondo: #F9F5F1;     
+            --color-texto: #333333;
+            --color-barra-top: #4A3A3A; 
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            margin: 0;
+            padding: 0;
+        }
+
+        .font-serif-display {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .bg-terracota { background-color: var(--color-principal); }
+        .text-terracota { color: var(--color-principal); }
+        .border-terracota { border-color: var(--color-principal); }
+
+        /* Ajuste global de padding de secciones para ser más compacto */
+        section {
+            padding-top: 50px !important;
+            padding-bottom: 50px !important;
+        }
+
+        /* Animación de pulso para el botón principal */
+        @keyframes pulse-vibrant {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(193, 91, 91, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 15px rgba(193, 91, 91, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(193, 91, 91, 0);
+            }
+        }
+
+        .pulse-animation {
+            animation: pulse-vibrant 2s infinite;
+        }
+
+        .btn-animate {
+            animation: subtle-pulse 3s infinite ease-in-out;
+        }
+
+        @keyframes subtle-pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .btn-glow:hover {
+            box-shadow: 0 0 20px rgba(193, 91, 91, 0.4);
+            transform: scale(1.05);
+        }
+
+        .countdown-number {
+            font-variant-numeric: tabular-nums;
+            font-weight: 700;
+        }
+
+        .quote-box {
+            border: 1.5px solid rgba(193, 91, 91, 0.3);
+            border-radius: 20px;
+            position: relative;
+            padding: 28px 20px 20px;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .pain-point-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            border-left: 4px solid var(--color-principal);
+            text-align: left;
+            transition: transform 0.2s;
+        }
+
+        .pain-point-card:hover {
+            transform: translateX(5px);
+        }
+
+        .soft-card {
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 24px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .soft-card:hover {
+            background: white;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.03);
+        }
+
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 12px;
+            padding: 0.75rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .bonus-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .bonus-card:hover {
+            transform: scale(1.02);
+        }
+
+        .bonus-img {
+            width: 85px;
+            height: auto;
+            flex-shrink: 0;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .check-circle-icon {
+            background-color: #D68C7E;
+            color: white;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            height: 100%;
+        }
+        
+        .testimonial-card:nth-child(even) {
+            border-top: 3px solid var(--color-principal);
+        }
+
+        .stars-row {
+            color: #D68C7E;
+            font-size: 14px;
+        }
+
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: #28a745;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        /* Acordeón de FAQ */
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border-left: 4px solid var(--color-principal);
+            overflow: hidden;
+        }
+
+        .faq-button {
+            width: 100%;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            font-weight: 700;
+            color: #333;
+            transition: background 0.2s;
+        }
+
+        .faq-button:hover {
+            background: #fdfdfd;
+        }
+
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: white;
+        }
+
+        .faq-content-inner {
+            padding: 0 1.5rem 1.5rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s;
+            color: var(--color-principal);
+            font-size: 1.5rem;
+        }
+
+        .faq-item.active .faq-content {
+            max-height: 500px;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        /* Estilos para burbujas de chat de testimonios */
+        .chat-bubble {
+            position: relative;
+            background: #f0f0f0;
+            border-radius: 18px;
+            padding: 12px 16px;
+            max-width: 85%;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .chat-bubble.sent {
+            background: #E1FFC7;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Barra de Contador Superior -->
+    <div class="bg-[#4A3A3A] text-white py-2 sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4 flex justify-center items-center gap-2 text-sm md:text-base">
+            <span class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#F3A5A5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span class="font-bold tracking-wide uppercase">¡Oferta especial! Caduca en</span>
+            </span>
+            <span id="top-timer" class="countdown-number bg-white/10 px-2 py-0.5 rounded text-[#F3A5A5]">10:00</span>
+        </div>
+    </div>
+
+    <!-- Sección Hero (Reducido padding-top para pegar al header) -->
+    <section class="relative bg-white overflow-hidden border-b border-gray-100 !pt-[40px] !pb-[50px]">
+        <div class="container mx-auto px-4 text-center">
+            <span class="inline-block px-4 py-1 mb-6 text-sm font-semibold tracking-widest text-white uppercase bg-terracota rounded-full shadow-sm">
+                ⏳ EN SOLO 21 DÍAS...
+            </span>
+            
+            <h1 class="text-4xl md:text-6xl text-black mb-4 leading-[1.1] max-w-4xl mx-auto font-serif-display tracking-tight">
+                <span class="text-terracota">Recupera</span> tu paz y vuelve a sentirte en <span class="text-terracota">calma</span>
+            </h1>
+
+            <p class="text-base md:text-lg text-gray-800 mb-8 max-w-2xl mx-auto font-medium leading-relaxed">
+                Un proceso guiado para sanar por dentro y vivir con calma y confianza.
+            </p>
+            
+            <div class="mb-10">
+                <a href="https://pay.hotmart.com/Q104261783I?checkoutMode=10" class="btn-glow inline-block bg-terracota text-white text-lg md:text-xl font-bold py-4 px-10 rounded-xl transition duration-300 transform shadow-lg uppercase tracking-wider">
+                    Sí, quiero sanar ahora
+                </a>
+            </div>
+
+            <div class="max-w-xl mx-auto mb-10 px-4">
+                <div class="quote-box p-0 overflow-hidden border-none bg-transparent text-center">
+                    <img 
+                        src="https://i.postimg.cc/dQZtKwc1/ADEMAS-(11).png" 
+                        alt="[Imagen de Sanación Emocional]" 
+                        class="w-full h-auto block mx-auto"
+                    >
+                </div>
+            </div>
+
+            <div class="max-w-2xl mx-auto mb-6 px-4 text-center text-gray-700 italic text-lg md:text-xl">
+                No es un libro más. Es un proceso <span class="text-terracota font-bold">guiado de sanación emocional</span>, con ejercicios prácticos, acompañamiento paso a paso, y herramientas que realmente funcionan.
+            </div>
+
+            <div class="mb-8">
+                <a href="https://pay.hotmart.com/Q104261783I?checkoutMode=10" class="btn-animate btn-glow inline-block bg-terracota text-white text-lg font-bold py-3.5 px-12 rounded-xl transition duration-300 shadow-xl uppercase tracking-wider">
+                    recupera tu paz y vuelve a sentirte en calma
+                </a>
+            </div>
+
+            <div class="flex flex-col items-center gap-3">
+                <div class="flex items-center gap-1.5 text-[#D17D7D] font-bold text-sm md:text-base">
+                    <span>🔥</span>
+                    <span>Alta demanda: Quedan pocos kits con descuento</span>
+                </div>
+                <div class="flex items-center justify-center gap-4 text-gray-500 text-xs md:text-sm font-medium">
+                    <span class="flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+                        </svg>
+                        Compra Segura
+                    </span>
+                    <span class="text-gray-300">|</span>
+                    <span class="flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-orange-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
+                        </svg>
+                        Acceso Inmediato
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Empatía -->
+    <section class="bg-[#F9F5F1]">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 italic text-terracota leading-tight font-serif-display">"Sé exactamente lo que estás sintiendo..."</h2>
+            
+            <div class="text-center mb-10 max-w-2xl mx-auto">
+                <p class="text-lg md:text-xl text-gray-700 font-medium leading-relaxed italic">
+                    Llega la noche y, en lugar de descansar, vuelven la ansiedad y los pensamientos que no puedes apagar. No tienes que seguir cargando eso sola.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-4 max-w-2xl mx-auto mb-10">
+                <div class="pain-point-card">
+                    <span class="text-terracota text-xl">▲</span>
+                    <p class="text-gray-700">Sientes que hay algo del pasado que <strong>todavía no pudiste soltar.</strong></p>
+                </div>
+                <div class="pain-point-card">
+                    <span class="text-terracota text-xl">▲</span>
+                    <p class="text-gray-700">Vives con <strong>ansiedad, angustia</strong> o una tristeza que no terminas de entender.</p>
+                </div>
+                <div class="pain-point-card">
+                    <span class="text-terracota text-xl">▲</span>
+                    <p class="text-gray-700">Te cuesta poner <strong>límites sin culpa</strong> y muchas veces <strong>te olvidas de vos.</strong></p>
+                </div>
+                <div class="pain-point-card">
+                    <span class="text-terracota text-xl">▲</span>
+                    <p class="text-gray-700">Tu mente te llena de <strong>pensamientos negativos</strong> que te hieren y no sabes cómo detenerlos.</p>
+                </div>
+                <div class="pain-point-card">
+                    <span class="text-terracota text-xl">▲</span>
+                    <p class="text-gray-700">Sabes que necesitas sanar... pero <strong>no sabes por dónde empezar.</strong></p>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="https://pay.hotmart.com/Q104261783I?checkoutMode=10" class="btn-glow inline-block bg-terracota text-white text-lg font-bold py-4 px-10 rounded-xl shadow-lg uppercase tracking-wider">
+                    Comenzar mi sanación
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: Contenido del Kit -->
+    <section id="contenido-kit" class="bg-white overflow-hidden">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 text-center lg:text-left">
+                    <h2 class="text-3xl md:text-4xl font-serif-display mb-6 leading-tight">
+                        “Si tu pasado sigue doliendo y no sabes como soltarlo, <span class="text-terracota underline decoration-terracota/30 underline-offset-4">esto fue creado para ti</span>”
+                    </h2>
+                    <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                        Un programa completo para soltar el dolor, liberar la culpa y recuperar la paz que mereces. Paso a paso. A tu ritmo.
+                    </p>
+                    <div class="space-y-4 mb-10 inline-block text-left">
+                        <div class="flex items-start gap-3">
+                            <span class="text-blue-400">📘</span>
+                            <span class="text-gray-700 font-semibold">Libro principal: El arte de sanar desde adentro</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-gray-400">📖</span>
+                            <span class="text-gray-700 font-semibold">65 Ejercicios para Procesar el Trauma</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-gray-300">🎁</span>
+                            <span class="text-gray-700 font-semibold">10 libros digitales de acompañamiento</span>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="https://pay.hotmart.com/Q104261783I?checkoutMode=10" class="pulse-animation btn-glow inline-block bg-terracota text-white text-xl font-bold py-5 px-12 rounded-2xl shadow-xl uppercase tracking-wider">
+                            Lo Quiero Ahora!
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <img 
+                            src="https://i.postimg.cc/rpFJbfbR/ADEMAS-(12).png" 
+                            alt="[Imagen completa del Kit de Sanación]" 
+                            class="w-full h-auto drop-shadow-2xl rounded-2xl"
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: ¿Por qué nada ha funcionado antes? -->
+    <section class="bg-[#FAF7F4]">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <h2 class="text-3xl md:text-5xl font-serif-display mb-4 text-gray-900 tracking-tight">¿Por qué nada ha funcionado antes?</h2>
+            <p class="text-gray-500 text-lg md:text-xl mb-12 font-medium">No es tu culpa. Es que nadie te dio las herramientas correctas.</p>
+
+            <div class="grid grid-cols-1 gap-6 text-left">
+                <div class="soft-card">
+                    <h3 class="text-2xl font-serif-display text-gray-800 mb-3">Distraerse no es sanar.</h3>
+                    <p class="text-gray-500 leading-relaxed text-lg">Salir, mantenerte ocupada, llenar el tiempo... solo empuja el dolor más adentro.</p>
+                </div>
+                <div class="soft-card">
+                    <h3 class="text-2xl font-serif-display text-gray-800 mb-3">Ignorar las emociones no las desaparece.</h3>
+                    <p class="text-gray-500 leading-relaxed text-lg">Lo que no procesas, lo repites. Lo que no sueltas, te pesa.</p>
+                </div>
+                <div class="soft-card">
+                    <h3 class="text-2xl font-serif-display text-gray-800 mb-3">Los consejos superficiales no funcionan.</h3>
+                    <p class="text-gray-500 leading-relaxed text-lg">"Échale ganas", "ya supéralo", "el tiempo lo cura"... Nada de eso aborda la raíz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: Imagina cómo se sentiría -->
+    <section class="bg-white">
+        <div class="container mx-auto px-4 max-w-5xl text-center">
+            <h2 class="text-4xl md:text-5xl font-serif-display mb-4 text-gray-900">Imagina cómo se sentiría...</h2>
+            <p class="text-gray-500 text-lg md:text-xl mb-12 font-medium">No tienes que imaginarlo mucho más tiempo.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div class="benefit-card">
+                    <span class="text-terracota text-xl">✦</span>
+                    <p class="text-gray-700 font-medium">Dormir sin que la ansiedad te despierte a las 3am</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="text-terracota text-xl">✦</span>
+                    <p class="text-gray-700 font-medium">Dejar de revivir recuerdos que ya no puedes cambiar</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="text-terracota text-xl">✦</span>
+                    <p class="text-gray-700 font-medium">Sentirte ligera, como si te quitaras un peso invisible</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="text-terracota text-xl">✦</span>
+                    <p class="text-gray-700 font-medium">Recuperar la confianza en ti misma</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="text-terracota text-xl">✦</span>
+                    <p class="text-gray-700 font-medium">Perdonarte sin sentir que traicionas tu dolor</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="text-terracota text-xl">✦</span>
+                    <p class="text-gray-700 font-medium">Volver a creer que mereces estar bien</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: Además si compras HOY (BONUS) -->
+    <section class="bg-[#F9F5F1]">
+        <div class="container mx-auto px-4 max-w-5xl text-center">
+            <h2 class="text-4xl md:text-6xl font-bold mb-4 font-serif-display">Además si compras HOY...</h2>
+            <p class="text-lg md:text-2xl text-gray-800 mb-2">Te llevas estos 10 REGALOS EXCLUSIVOS totalmente GRATIS</p>
+            <p class="text-lg md:text-2xl text-gray-800 mb-10">Te acompañarán emocionalmente en tu proceso</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Bonus 1 -->
+                <div class="bonus-card">
+                    <img src="https://i.postimg.cc/brhZJHMM/How-To-Stop-Worrying-All-The-Time-pdf-(1).png" alt="[Imagen del Bonus 1: Preocupación]" class="bonus-img">
+                    <div class="text-left">
+                        <p class="text-terracota font-bold text-sm">✦ BONUS 1:</p>
+                        <p class="text-gray-900 font-extrabold leading-tight">Como liberarse de la preocupación constante</p>
+                    </div>
+                </div>
+                <!-- Bonus 6 -->
+                <div class="bonus-card">
+                    <img src="https://i.postimg.cc/DzYxGmPk/5-formas-de-vencer-la-ansiedad.png" alt="[Imagen del Bonus 6: Ansiedad Social]" class="bonus-img">
+                    <div class="text-left">
+                        <p class="text-terracota font-bold text-sm">✦ BONUS 6:</p>
+                        <p class="text-gray-900 font-extrabold leading-tight">5 formas de vencer la ansiedad social</p>
+                    </div>
+                </div>
+                <!-- Bonus 2 -->
+                <div class="bonus-card">
+                    <img src="https://i.postimg.cc/jSpttqBw/I-start-my-day-with-motivation-pdf-(1).png" alt="[Imagen del Bonus 2: Motivación]" class="bonus-img">
+                    <div class="text-left">
+                        <p class="text-terracota font-bold text-sm">✦ BONUS 2:</p>
+                        <p class="text-gray-900 font-extrabold leading-tight">Comienzo mi día con motivación</p>
+                    </div>
+                </div>
+                <!-- Bonus 7 -->
+                <div class="bonus-card">
+                    <img src="https://i.postimg.cc/jjNDHFzT/estoy-contenta-con-o-sin-companero.png" alt="[Imagen del Bonus 7: Independencia Emocional]" class="bonus-img">
+                    <div class="text-left">
+                        <p class="text-terracota font-bold text-sm">✦ BONUS 7:</p>
+                        <p class="text-gray-900 font-extrabold leading-tight">Estoy contenta con o sin compañero</p>
+                    </div>
+                </div>
+                <!-- Bonus 3 -->
+                <div class="bonus-card">
+                    <img src="https://i.postimg.cc/gjQB8jVN/3-Strategies-to-Strengthen-Your-Self-Esteem-pdf-(1).png" alt="[Imagen del Bonus 3: Autoestima]" class="bonus-img">
+                    <div class="text-left">
+                        <p class="text-terracota font-bold text-sm">✦ BONUS 3:</p>
+                        <p class="text-gray-900 font-extrabold leading-tight">Recupera tu confianza (3 Estrategias)</p>
+                    </div>
+                </div>
+                <!-- Bonus 8 -->
+                <div class="bonus-card">
+                    <img src="https://i.postimg.cc/Vk9yX9J1/ejercicios-para-la-ansiedad.png" alt="[Imagen del Bonus 8: Ejercicios para la Ansiedad]" class="bonus-img">
+                    <div class="text-left">
+                        <p class="text-terracota font-bold text-sm">✦ BONUS 8:</p>
+                        <p class="text-gray-900 font-extrabold leading-tight">Ejercicios para la ansiedad</p>
+                    </div>
+                </div>
+                <!-- Bonus 4 -->
+                <div class="bonus-card">
+                    <img src="https://i.postimg.cc/jSPdWJHz/How-to-Forgive-Yourself-for-Past-Mistakes-pdf-(1).png" alt="[Imagen del Bonus 4: Perdonarse]" class="bonus-img">
+                    <div class="text-left">
+                        <p class="text-terracota font-bold text-sm">✦ BONUS 4:</p>
+                        <p class="text-gray-900 font-extrabold leading-tight">Libérate de los errores del pasado</p>
+                    </div>
+                </div>
+                <!-- Bonus 9 -->
+                <div class="bonus-card">
+                    <img src="https://i.postimg.cc/kXQ9yPHS/diez-formas-de-apreciarte.png" alt="[Imagen del Bonus 9: 10 formas de apreciarte]" class="bonus-img">
+                    <div class="text-left">
+                        <p class="text-terracota font-bold text-sm">✦ BONUS 9:</p>
+                        <p class="text-gray-900 font-extrabold leading-tight">10 formas de apreciarte</p>
+                    </div>
+                </div>
+                <!-- Bonus 5 -->
+                <div class="bonus-card">
+                    <img src="https://i.postimg.cc/qRRGM0fV/diario-para-enfrentar-la-ansiedad.png" alt="[Imagen del Bonus 5: Diario Ansiedad]" class="bonus-img">
+                    <div class="text-left">
+                        <p class="text-terracota font-bold text-sm">✦ BONUS 5:</p>
+                        <p class="text-gray-900 font-extrabold leading-tight">Diario para enfrentar la ansiedad</p>
+                    </div>
+                </div>
+                <!-- Bonus 10 -->
+                <div class="bonus-card">
+                    <img src="https://i.postimg.cc/X77xswH1/me-amo-a-mi-misma.png" alt="[Imagen del Bonus 10: Me amo a mí misma]" class="bonus-img">
+                    <div class="text-left">
+                        <p class="text-terracota font-bold text-sm">✦ BONUS 10:</p>
+                        <p class="text-gray-900 font-extrabold leading-tight">Me amo a mí misma</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: LO QUE VAS A LOGRAR -->
+    <section class="bg-white">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 uppercase tracking-tight">LO QUE VAS A LOGRAR</h2>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-[#D68C7E] uppercase tracking-tight">CON ESTE KIT...</h2>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="flex items-start gap-4">
+                    <div class="check-circle-icon mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <p class="text-lg md:text-xl text-gray-600 font-medium">
+                        <span class="font-bold text-gray-800">Aprenderás</span> a soltar emociones del pasado sin reprimirlas.
+                    </p>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="check-circle-icon mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <p class="text-lg md:text-xl text-gray-600 font-medium">
+                        <span class="font-bold text-gray-800">Entenderás</span> por qué algunas heridas siguen activas.
+                    </p>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="check-circle-icon mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <p class="text-lg md:text-xl text-gray-600 font-medium">
+                        <span class="font-bold text-gray-800">Sabrás</span> cómo manejar la ansiedad con ejercicios prácticos.
+                    </p>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="check-circle-icon mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <p class="text-lg md:text-xl text-gray-600 font-medium">
+                        <span class="font-bold text-gray-800">Descubrirás</span> cómo transformar los pensamientos negativos.
+                    </p>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="check-circle-icon mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <p class="text-lg md:text-xl text-gray-600 font-medium">
+                        <span class="font-bold text-gray-800">Aprenderás</span> a poner límites desde el respeto.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: TESTIMONIOS -->
+    <section class="bg-[#FAF7F4] overflow-hidden">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-16">
+                <span class="text-terracota font-bold tracking-widest text-sm uppercase block mb-2">Historias Reales</span>
+                <h2 class="text-4xl md:text-5xl font-serif-display text-gray-800">Ellas ya están sanando...</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16 items-center">
+                <!-- Chat UI -->
+                <div class="bg-white p-6 md:p-10 rounded-[30px] shadow-xl border border-gray-100 flex flex-col">
+                    <div class="flex items-center gap-3 mb-6 border-b border-gray-100 pb-4">
+                        <div class="w-10 h-10 rounded-full bg-terracota/20 flex items-center justify-center text-terracota font-bold">L</div>
+                        <div>
+                            <p class="font-bold text-sm text-gray-800">Laura M.</p>
+                            <p class="text-[10px] text-green-500 font-bold uppercase tracking-tighter">● En línea</p>
+                        </div>
+                    </div>
+                    <div class="chat-bubble">Hola! Solo quería agradecerte...</div>
+                    <div class="chat-bubble">Anoche pude dormir 7 horas seguidas sin despertarme con el corazón a mil.</div>
+                    <div class="chat-bubble">El ejercicio de la página 14 me cambió el chip por completo. 🙏✨</div>
+                    <div class="chat-bubble sent">¡Me alegra muchísimo Laura! Sigue así, vas por muy buen camino. ❤️</div>
+                </div>
+
+                <div class="space-y-6">
+                    <h3 class="text-3xl font-serif-display text-gray-800 leading-tight">
+                        “Fue la mejor inversión que hice para mi salud mental este año.”
+                    </h3>
+                    <p class="text-gray-600 text-lg">
+                        Cientos de mujeres han encontrado en este programa la guía que necesitaban cuando se sentían perdidas. No son solo palabras, son herramientas que transforman el día a día.
+                    </p>
+                    <div class="flex items-center gap-4 pt-4">
+                        <div class="flex -space-x-3">
+                            <img class="w-12 h-12 rounded-full border-4 border-white object-cover" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=150&auto=format&fit=crop" alt="User 1">
+                            <img class="w-12 h-12 rounded-full border-4 border-white object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop" alt="User 2">
+                            <img class="w-12 h-12 rounded-full border-4 border-white object-cover" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150&auto=format&fit=crop" alt="User 3">
+                        </div>
+                        <p class="text-sm font-bold text-gray-700">Únete a más de 1,400 mujeres que decidieron empezar a sanar.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="stars-row">★★★★★</div>
+                    <p class="text-gray-700 italic leading-relaxed">"Lo que más me gustó fue que no es solo teoría. Los ejercicios te obligan a mirar hacia adentro pero con mucha compasión. Me siento más liviana."</p>
+                    <div class="flex items-center gap-2 mt-auto">
+                        <img class="w-8 h-8 rounded-full object-cover" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=100&auto=format&fit=crop" alt="User profile">
+                        <span class="font-bold text-gray-900">Natalia S.</span>
+                        <span class="verified-badge"> Verified</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="stars-row">★★★★★</div>
+                    <p class="text-gray-700 italic leading-relaxed">"Nunca pensé que un PDF pudiera ayudarme tanto. Los bonos de ansiedad son oro puro, los tengo siempre a mano en mi celu."</p>
+                    <div class="flex items-center gap-2 mt-auto">
+                        <img class="w-8 h-8 rounded-full object-cover" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=100&auto=format&fit=crop" alt="User profile">
+                        <span class="font-bold text-gray-900">Elena G.</span>
+                        <span class="verified-badge"> Verified</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="stars-row">★★★★★</div>
+                    <p class="text-gray-700 italic leading-relaxed">"Llevaba meses estancada en mi duelo. Este material me dio el empujón que necesitaba para soltar la culpa y empezar a vivir de nuevo."</p>
+                    <div class="flex items-center gap-2 mt-auto">
+                        <img class="w-8 h-8 rounded-full object-cover" src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?q=80&w=100&auto=format&fit=crop" alt="User profile">
+                        <span class="font-bold text-gray-900">Sofía R.</span>
+                        <span class="verified-badge"> Verified</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE OFERTA FINAL -->
+    <section class="bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-3xl mx-auto border-2 border-dashed border-gray-300 p-8 md:p-12 rounded-[40px] bg-[#F9F5F1]/50 shadow-sm relative overflow-hidden">
+                <h2 class="text-2xl md:text-4xl font-serif-display mb-6 text-gray-800 uppercase tracking-tight">TU TRANSFORMACIÓN COMIENZA AQUÍ</h2>
+                
+                <div class="flex flex-col items-center mb-8">
+                    <div class="flex justify-center items-baseline gap-2">
+                        <span class="text-7xl font-bold text-terracota">$9</span>
+                        <span class="text-xl font-bold text-gray-400 uppercase">USD</span>
+                    </div>
+                    <p class="text-gray-500 font-bold text-sm md:text-base mt-1">
+                        oferta limitada ⚡ ANTES <span class="line-through text-red-400">35.00 USD</span>
+                    </p>
+                </div>
+
+                <div class="bg-white border border-[#D68C7E]/30 rounded-2xl p-4 mb-8 max-w-sm mx-auto shadow-sm">
+                    <p class="text-[#D68C7E] font-bold text-lg flex items-center justify-center gap-2 mb-1">
+                        ⚡ ¡Últimos 3 cupos en oferta! ⚡
+                    </p>
+                    <p class="font-bold text-gray-800 bg-gray-50 py-1 px-4 rounded-lg inline-block">
+                        Solo por hoy, cupos limitados
+                    </p>
+                </div>
+
+                <div class="flex flex-col items-center gap-4">
+                    <a href="https://pay.hotmart.com/Q104261783I?checkoutMode=10" class="btn-glow inline-block bg-terracota text-white text-xl font-bold py-5 px-14 rounded-2xl transition-all uppercase tracking-widest shadow-xl">
+                        SÍ, QUIERO SANAR AHORA ➤
+                    </a>
+                    <p class="text-gray-500 font-bold text-sm md:text-base mt-2">
+                        <span id="viewing-counter" class="text-gray-700">31</span> personas están viendo esta oferta
+                    </p>
+                    <p class="text-gray-500 font-medium text-xs md:text-sm flex items-center gap-2">
+                        <span>🔒</span> Pago 100% Seguro. Garantía de satisfacción incluida.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE GARANTÍA -->
+    <section class="bg-white border-t border-gray-100">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-3xl mx-auto border-2 border-dashed border-terracota/40 p-10 md:p-14 rounded-[20px] bg-[#F9F5F1]/30 shadow-sm flex flex-col items-center">
+                <div class="mb-6">
+                    <!-- Icono de Garantía -->
+                    <svg width="70" height="70" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" fill="#D68C7E" />
+                    </svg>
+                </div>
+                
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6 uppercase tracking-tight">PRUÉBALO 7 DÍAS SIN RIESGOS</h2>
+                
+                <p class="text-gray-600 text-lg md:text-xl leading-relaxed mb-8 font-medium">
+                    Estamos tan seguros de que este material te ayudará, que te ofrecemos una <span class="font-bold text-gray-800">Garantía de Satisfacción Total.</span>
+                </p>
+                
+                <p class="text-gray-600 text-lg md:text-xl leading-relaxed italic">
+                    Si sientes que no es para ti, solicita tu devolución y te devolvemos el 100% de tu dinero. Sin preguntas incómodas.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE PREGUNTAS FRECUENTES -->
+    <section class="bg-[#FAF7F4]">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-serif-display text-center mb-12 text-gray-800 uppercase tracking-tight">PREGUNTAS FRECUENTES</h2>
+            
+            <div class="space-y-4">
+                <div class="faq-item">
+                    <button class="faq-button" onclick="toggleFaq(this)">
+                        <span>📌 ¿Cuánto cuesta y qué incluye exactamente?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-content">
+                        <div class="faq-content-inner">
+                            El valor es de <strong>$9.00</strong>. Incluye el ebook "El Arte de Sanar desde Adentro", "65 Ejercicios para Procesar el Trauma",+ 10 ebooks adicionales de acompañamiento emocional.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-button" onclick="toggleFaq(this)">
+                        <span>📌 ¿Son libros físicos o digitales?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-content">
+                        <div class="faq-content-inner">
+                            Todos los materiales son 100% digitales en formato PDF (ebooks). Puedes leerlos desde tu celular, computadora o tablet. Si prefieres leer en papel, puedes imprimirlos.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-button" onclick="toggleFaq(this)">
+                        <span>📌 ¿Cómo recibo el material?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-content">
+                        <div class="faq-content-inner">
+                            El acceso es inmediato luego de la compra. Te llega un email con los enlaces de descarga. En caso de no encontrar el mail, podés buscar en correo no deseado o spam.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-button" onclick="toggleFaq(this)">
+                        <span>📌 ¿Necesito estar en terapia para aprovecharlo?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-content">
+                        <div class="faq-content-inner">
+                            No es requisito. Es un recurso complementario que puede acompañar tu proceso personal o terapéutico. No reemplaza atención profesional.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-button" onclick="toggleFaq(this)">
+                        <span>📌 ¿Cuánto tiempo tengo acceso? ¿Incluye actualizaciones?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-content">
+                        <div class="faq-content-inner">
+                            Podés descargar los archivos y conservarlos de por vida. Las actualizaciones futuras están incluidas sin costo adicional.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#1A1A1A] text-white py-12 border-t border-white/5">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-600 text-xs tracking-widest font-medium uppercase">© 2024 LÚA DIGITAL. TODOS LOS DERECHOS RESERVADOS.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Función para el acordeón FAQ
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Cerrar otros
+            document.querySelectorAll('.faq-item').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+
+        // Contador de tiempo (10 minutos)
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration;
+                }
+            }, 1000);
+        }
+
+        // Contador de personas viendo
+        function startViewingCounter() {
+            const counterElement = document.getElementById('viewing-counter');
+            let count = 31;
+            setInterval(() => {
+                const change = Math.floor(Math.random() * 6) - 2; // -2 a +3
+                count += change;
+                if (count < 24) count = 25; 
+                if (count > 58) count = 55; 
+                if (counterElement) counterElement.textContent = count;
+            }, 4000);
+        }
+
+        window.onload = function () {
+            var tenMinutes = 60 * 10;
+            var display = document.querySelector('#top-timer');
+            if (display) startTimer(tenMinutes, display);
+            startViewingCounter();
+        };
+    </script>
+</body>
+</html>
